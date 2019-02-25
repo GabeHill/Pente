@@ -1,0 +1,30 @@
+﻿<Window x:Class="PenteProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PenteProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Name="window" Height="750" Width="700" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Name="txtPlayer1" FontSize="20" Grid.Row="0" Width="260" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="50,8,0,5"/>
+        <Label Name="timer" Background="White" Content="" FontSize="20" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="0" Height="28" Width="35" Margin="329,22,329.6,0" VerticalAlignment="Top"/>
+        <Label Name="txtPlayer2" FontSize="20" Grid.Row="0" Width="260" VerticalContentAlignment="Center" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,8,49.6,5"/>
+        <Label Name ="lblPlayer1CaptureCounter" Content="0" FontSize="36" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="45" Height="50"/>
+        <Label Name ="lblPlayer2CaptureCounter" Content="0" FontSize="36" HorizontalAlignment="Right" Margin="0,0,-0.4,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="45" Height="50"/>
+
+        <UniformGrid Name="visualBoard" Background="Gray" Grid.Row="1">
+
+        </UniformGrid>
+        <Label Name="lblWinningLabel" Content="" Padding="5" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,-0.4,650.2" Grid.RowSpan="2"/>
+        <UniformGrid Name="gameBoard" Grid.Row="1">
+
+        </UniformGrid>
+        <Button Name="btnNewGame" Content="New Game" HorizontalAlignment="Left" Height="20" Margin="312,1,0,0" VerticalAlignment="Top" Width="69" Click="btnNewGame_Click"/>
+    </Grid>
+</Window>
