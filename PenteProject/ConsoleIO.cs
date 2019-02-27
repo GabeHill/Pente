@@ -119,7 +119,7 @@ namespace ConsoleIO {
 
                     Console.WriteLine("Out of bounds. Try again.");
                 }
-            } catch (IOException e) {
+            } catch (IOException) {
                 Console.WriteLine("You broke it. Try it again.");
             }
 
@@ -146,9 +146,9 @@ namespace ConsoleIO {
                     if (inp >= min && inp <= max) return inp;
 
                     Console.WriteLine("Out of bounds. Try again.");
-                } catch (IOException e) {
+                } catch (IOException) {
                     Console.WriteLine("You broke it. Try it again.");
-                } catch (FormatException e) {
+                } catch (FormatException) {
                     Console.WriteLine("That wasn't a number.");
                 }
         }
@@ -191,9 +191,9 @@ namespace ConsoleIO {
                     else
                         return kek;
                 }
-            } catch (IOException e) {
+            } catch (IOException) {
                 Console.WriteLine("You broke it. Try it again.");
-            } catch (NullReferenceException e) {
+            } catch (NullReferenceException) {
                 Console.WriteLine("It cant be null.");
             }
 
