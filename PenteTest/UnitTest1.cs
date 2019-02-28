@@ -21,7 +21,7 @@ namespace PenteTest
 
 
         [TestMethod]
-        public void TestPlacePiece0_0()
+        public void TestPlacePiece0_0_b()
         {
             Game g = new Game();
 
@@ -33,13 +33,15 @@ namespace PenteTest
 
             char[][] expected = new char[stringArr.Length][];
 
-            for (int i = 0; i < stringArr.Length; i++) {
+            for (int i = 0; i < stringArr.Length; i++)
+            {
                 expected[i] = stringArr[i].ToCharArray();
             }
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_0()
+        [TestMethod]
+        public void TestPlacePiece18_0_b()
         {
             Game g = new Game();
 
@@ -58,8 +60,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_1()
+        [TestMethod]
+        public void TestPlacePiece0_1_b()
         {
             Game g = new Game();
 
@@ -78,7 +80,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_1()
+        [TestMethod]
+        public void TestPlacePiece18_1_b()
         {
             Game g = new Game();
 
@@ -97,8 +100,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_2()
+        [TestMethod]
+        public void TestPlacePiece0_2_b()
         {
             Game g = new Game();
 
@@ -117,7 +120,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_2()
+        [TestMethod]
+        public void TestPlacePiece18_2_b()
         {
             Game g = new Game();
 
@@ -136,8 +140,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_3()
+        [TestMethod]
+        public void TestPlacePiece0_3_b()
         {
             Game g = new Game();
 
@@ -156,7 +160,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_3()
+        [TestMethod]
+        public void TestPlacePiece18_3_b()
         {
             Game g = new Game();
 
@@ -175,8 +180,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_4()
+        [TestMethod]
+        public void TestPlacePiece0_4_b()
         {
             Game g = new Game();
 
@@ -195,7 +200,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_4()
+        [TestMethod]
+        public void TestPlacePiece18_4_b()
         {
             Game g = new Game();
 
@@ -214,8 +220,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_5()
+        [TestMethod]
+        public void TestPlacePiece0_5_b()
         {
             Game g = new Game();
 
@@ -234,7 +240,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_5()
+        [TestMethod]
+        public void TestPlacePiece18_5_b()
         {
             Game g = new Game();
 
@@ -253,8 +260,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_6()
+        [TestMethod]
+        public void TestPlacePiece0_6_b()
         {
             Game g = new Game();
 
@@ -273,7 +280,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_6()
+        [TestMethod]
+        public void TestPlacePiece18_6_b()
         {
             Game g = new Game();
 
@@ -292,8 +300,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_7()
+        [TestMethod]
+        public void TestPlacePiece0_7_b()
         {
             Game g = new Game();
 
@@ -312,7 +320,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_7()
+        [TestMethod]
+        public void TestPlacePiece18_7_b()
         {
             Game g = new Game();
 
@@ -331,8 +340,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_8()
+        [TestMethod]
+        public void TestPlacePiece0_8_b()
         {
             Game g = new Game();
 
@@ -351,7 +360,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_8()
+        [TestMethod]
+        public void TestPlacePiece18_8_b()
         {
             Game g = new Game();
 
@@ -370,8 +380,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_9()
+        [TestMethod]
+        public void TestPlacePiece0_9_b()
         {
             Game g = new Game();
 
@@ -390,7 +400,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_9()
+        [TestMethod]
+        public void TestPlacePiece18_9_b()
         {
             Game g = new Game();
 
@@ -409,8 +420,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_10()
+        [TestMethod]
+        public void TestPlacePiece0_10_b()
         {
             Game g = new Game();
 
@@ -429,7 +440,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_10()
+        [TestMethod]
+        public void TestPlacePiece18_10_b()
         {
             Game g = new Game();
 
@@ -448,8 +460,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_11()
+        [TestMethod]
+        public void TestPlacePiece0_11_b()
         {
             Game g = new Game();
 
@@ -468,7 +480,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_11()
+        [TestMethod]
+        public void TestPlacePiece18_11_b()
         {
             Game g = new Game();
 
@@ -487,8 +500,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_12()
+        [TestMethod]
+        public void TestPlacePiece0_12_b()
         {
             Game g = new Game();
 
@@ -507,7 +520,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_12()
+        [TestMethod]
+        public void TestPlacePiece18_12_b()
         {
             Game g = new Game();
 
@@ -526,8 +540,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_13()
+        [TestMethod]
+        public void TestPlacePiece0_13_b()
         {
             Game g = new Game();
 
@@ -546,7 +560,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_13()
+        [TestMethod]
+        public void TestPlacePiece18_13_b()
         {
             Game g = new Game();
 
@@ -565,8 +580,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_14()
+        [TestMethod]
+        public void TestPlacePiece0_14_b()
         {
             Game g = new Game();
 
@@ -585,7 +600,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_14()
+        [TestMethod]
+        public void TestPlacePiece18_14_b()
         {
             Game g = new Game();
 
@@ -604,8 +620,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_15()
+        [TestMethod]
+        public void TestPlacePiece0_15_b()
         {
             Game g = new Game();
 
@@ -624,7 +640,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_15()
+        [TestMethod]
+        public void TestPlacePiece18_15_b()
         {
             Game g = new Game();
 
@@ -643,8 +660,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_16()
+        [TestMethod]
+        public void TestPlacePiece0_16_b()
         {
             Game g = new Game();
 
@@ -663,7 +680,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_16()
+        [TestMethod]
+        public void TestPlacePiece18_16_b()
         {
             Game g = new Game();
 
@@ -682,8 +700,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_17()
+        [TestMethod]
+        public void TestPlacePiece0_17_b()
         {
             Game g = new Game();
 
@@ -702,7 +720,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_17()
+        [TestMethod]
+        public void TestPlacePiece18_17_b()
         {
             Game g = new Game();
 
@@ -721,8 +740,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-
-        public void TestPlacePiece0_18()
+        [TestMethod]
+        public void TestPlacePiece0_18_b()
         {
             Game g = new Game();
 
@@ -741,7 +760,8 @@ namespace PenteTest
 
             Assert.AreEqual(res, expected);
         }
-        public void TestPlacePiece18_18()
+        [TestMethod]
+        public void TestPlacePiece18_18_b()
         {
             Game g = new Game();
 
@@ -759,9 +779,7 @@ namespace PenteTest
             }
 
             Assert.AreEqual(res, expected);
-        }
 
-        Assert.AreEqual(res, expected);
         }
 
         [TestMethod]
