@@ -14,26 +14,26 @@ namespace PenteProject
         private char[,] board = new char[19, 19];
         private int turnCounter = 0;
 
-        private bool winCheck()
+        public bool winCheck()
         {
             bool hasWon = false;
 
             return hasWon;
         }
 
-        private void capturePair()
+        public void capturePair()
         {
 
         }
 
-        private void placePiece(char col, int row, char player)
+        public void placePiece(char col, int row, char player)
         {
             int column = col - 97;
 
             board[row, column] = player;
         }
 
-        private void createBoard()
+        public void createBoard()
         {
             for (int i = 0; i < 19; i++)
             {
@@ -49,7 +49,7 @@ namespace PenteProject
         //param for last piece placed
         //check if piece has already been placed. if its a +, it cannot be put in that space.
 
-        private void checkPossiblePlacements(char col, int row)
+        public void checkPossiblePlacements(char col, int row)
         {
             int column = col - 97;
             row--;
@@ -97,7 +97,7 @@ namespace PenteProject
             }
         }
 
-        private char[,] printBoard()
+        public char[,] printBoard()
         {
             string s = "";
             int spaces = 19;
