@@ -20,7 +20,7 @@ namespace PenteTest
 
 
         [TestMethod]
-        public void TestPlacePiece()
+        public void TestPlacePiece0_0()
         {
             Game g = new Game();
 
@@ -33,6 +33,215 @@ namespace PenteTest
             char[][] expected = new char[stringArr.Length][];
 
             for (int i = 0; i < stringArr.Length; i++) {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece18_0()
+        {
+            Game g = new Game();
+
+            string test = "++++++++++++++++++b\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(18, 0, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece0_1()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\nb++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(0, 1, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece18_1()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n++++++++++++++++++b\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(18, 1, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece0_2()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\nb++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(0, 2, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece18_2()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++b\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(18, 2, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece0_3()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nb++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(0, 3, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece18_3()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++b\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(18, 3, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece0_4()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nb++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(0, 4, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece18_4()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++b\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(18, 4, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece0_5()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nb++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(0, 5, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
+                expected[i] = stringArr[i].ToCharArray();
+            }
+
+            Assert.AreEqual(res, expected);
+        }
+        public void TestPlacePiece18_5()
+        {
+            Game g = new Game();
+
+            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++b\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+
+            char[][] res = g.PlacePiece(18, 5, 'b'); //[x][y][piece color]
+
+            string[] stringArr = test.Split('\n');
+
+            char[][] expected = new char[stringArr.Length][];
+
+            for (int i = 0; i < stringArr.Length; i++)
+            {
                 expected[i] = stringArr[i].ToCharArray();
             }
 
