@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PenteProject {
-    class Program {
-        static void Main(string[] args) {
+    public class PenteMain{
+        public static void Main(string[] args) {
+            Game g = new Game();
+            g.runGame();
         }
     }
 }
