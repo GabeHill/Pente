@@ -25,12 +25,12 @@ namespace PenteProject
         {
             char player2;
 
-            if (player1 == 'b')
+            if (player1 == 'B')
             {
-                player2 = 'w';
+                player2 = 'W';
             } else
             {
-                player2 = 'b';
+                player2 = 'B';
             }
 
             int column = col - 97;
@@ -192,8 +192,8 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    placePiece(col, row - 1, p1);
                     capturePair(col, row - 1, p1);
+                    placePiece(col, row - 1, p1);
                 }
                 else
                 {
@@ -202,8 +202,8 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    placePiece(col, row - 1, p2);
                     capturePair(col, row - 1, p2);
+                    placePiece(col, row - 1, p2);
                 }
             }
         }
