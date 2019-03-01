@@ -21,11 +21,6 @@ namespace PenteProject
             return hasWon;
         }
 
-        private void deletePiece(int col, int row)
-        {
-
-        }
-
         private void capturePair(char col, int row, char player1)
         {
             char player2;
@@ -49,8 +44,8 @@ namespace PenteProject
                 {
                     if (((row + 3) < 19 && (row + 3) >= 0) && board[row + 3, column] == player1)
                     {
-                        deletePiece(column, row + 1);
-                        deletePiece(column, row + 2);
+                        placePiece((char)(column + 97), row + 1, '+');
+                        placePiece((char)(column + 97), row + 2, '+');
                     }
                 }
             }
@@ -61,8 +56,8 @@ namespace PenteProject
                 {
                     if (((row + 3) < 19 && (row + 3) >= 0 && (column + 3) < 19 && (column + 3) >= 0) && board[row + 3, column + 3] == player1)
                     {
-                        deletePiece(column + 1, row + 1);
-                        deletePiece(column + 2, row + 2);
+                        placePiece((char)(column + 1 + 97), row + 1, '+');
+                        placePiece((char)(column + 97 + 2), row + 2, '+');
                     }
                 }
             }
@@ -73,8 +68,8 @@ namespace PenteProject
                 {
                     if (((column + 3) < 19 && (column + 3) >= 0) && board[row, column + 3] == player1)
                     {
-                        deletePiece(column + 1, row);
-                        deletePiece(column + 2, row);
+                        placePiece((char)(column + 97 + 1), row, '+');
+                        placePiece((char)(column + 97 + 2), row, '+');
                     }
                 }
             }
@@ -85,8 +80,8 @@ namespace PenteProject
                 {
                     if (((row - 3) < 19 && (row - 3) >= 0 && (column + 3) < 19 && (column + 3) >= 0) && board[row - 3, column + 3] == player1)
                     {
-                        deletePiece(column + 1, row - 1);
-                        deletePiece(column + 2, row - 2);
+                        placePiece((char)(column + 97 + 1), row - 1, '+');
+                        placePiece((char)(column + 97 + 2), row - 2, '+');
                     }
                 }
             }
@@ -97,8 +92,8 @@ namespace PenteProject
                 {
                     if (((row - 3) < 19 && (row - 3) >= 0) && board[row - 3, column] == player1)
                     {
-                        deletePiece(column, row - 1);
-                        deletePiece(column, row - 2);
+                        placePiece((char)(column + 97), row - 1, '+');
+                        placePiece((char)(column + 97), row - 2, '+');
                     }
                 }
             }
@@ -109,8 +104,8 @@ namespace PenteProject
                 {
                     if (((row - 3) < 19 && (row - 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row - 3, column - 3] == player1)
                     {
-                        deletePiece(column - 1, row - 1);
-                        deletePiece(column - 2, row - 2);
+                        placePiece((char)(column + 97 - 1), row - 1, '+');
+                        placePiece((char)(column + 97 - 2), row - 2, '+');
                     }
                 }
             }
@@ -121,8 +116,8 @@ namespace PenteProject
                 {
                     if (((column - 3) < 19 && (column - 3) >= 0) && board[row, column - 3] == player1)
                     {
-                        deletePiece(column - 1, row);
-                        deletePiece(column - 2, row);
+                        placePiece((char)(column + 97 - 1), row, '+');
+                        placePiece((char)(column + 97 - 2), row, '+');
                     }
                 }
             }
@@ -133,8 +128,8 @@ namespace PenteProject
                 {
                     if (((row + 3) < 19 && (row + 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row + 3, column - 3] == '+')
                     {
-                        deletePiece(column - 1, row + 1);
-                        deletePiece(column - 2, row + 2);
+                        placePiece((char)(column + 97 - 1), row + 1, '+');
+                        placePiece((char)(column + 97 - 2), row + 2, '+');
                     }
                 }
             }
