@@ -26,11 +26,11 @@ namespace PenteProject
 
         }
 
-        private void capturePair(char col, int row, char player)
+        private void capturePair(char col, int row, char player1)
         {
             char player2;
 
-            if (player == 'b')
+            if (player1 == 'b')
             {
                 player2 = 'w';
             } else
@@ -45,9 +45,9 @@ namespace PenteProject
             //check for right of last placed piece
             if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 1, column] == player2)
             {
-                if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 2, column] == player2)
+                if (((row + 2) < 19 && (row + 2) >= 0) && board[row + 2, column] == player2)
                 {
-                    if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 3, column] == player)
+                    if (((row + 3) < 19 && (row + 3) >= 0) && board[row + 3, column] == player1)
                     {
                         deletePiece(column, row + 1);
                         deletePiece(column, row + 2);
@@ -55,39 +55,88 @@ namespace PenteProject
                 }
             }
             //check for bottom right corner
-            if (((row + 1) < 19 && (row + 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row + 1, column + 1] == '+')
+            if (((row + 1) < 19 && (row + 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row + 1, column + 1] == player2)
             {
-                board[row + 1, column + 1] = 'X';
+                if (((row + 2) < 19 && (row + 2) >= 0 && (column + 2) < 19 && (column + 2) >= 0) && board[row + 2, column + 2] == player2)
+                {
+                    if (((row + 3) < 19 && (row + 3) >= 0 && (column + 3) < 19 && (column + 3) >= 0) && board[row + 3, column + 3] == player1)
+                    {
+                        deletePiece(column + 1, row + 1);
+                        deletePiece(column + 2, row + 2);
+                    }
+                }
             }
             //check for space directly under piece
-            if (((column + 1) < 19 && (column + 1) >= 0) && board[row, column + 1] == '+')
+            if (((column + 1) < 19 && (column + 1) >= 0) && board[row, column + 1] == player2)
             {
-                board[row, column + 1] = 'X';
+                if (((column + 2) < 19 && (column + 2) >= 0) && board[row, column + 2] == player2)
+                {
+                    if (((column + 3) < 19 && (column + 3) >= 0) && board[row, column + 3] == player1)
+                    {
+                        deletePiece(column + 1, row);
+                        deletePiece(column + 2, row);
+                    }
+                }
             }
             //check for bottom left of piece
-            if (((row - 1) < 19 && (row - 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row - 1, column + 1] == '+')
+            if (((row - 1) < 19 && (row - 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row - 1, column + 1] == player2)
             {
-                board[row - 1, column + 1] = 'X';
+                if (((row - 2) < 19 && (row - 2) >= 0 && (column + 2) < 19 && (column + 2) >= 0) && board[row - 2, column + 2] == player2)
+                {
+                    if (((row - 3) < 19 && (row - 3) >= 0 && (column + 3) < 19 && (column + 3) >= 0) && board[row - 3, column + 3] == player1)
+                    {
+                        deletePiece(column + 1, row - 1);
+                        deletePiece(column + 2, row - 2);
+                    }
+                }
             }
             //check for left of piece
-            if (((row - 1) < 19 && (row - 1) >= 0) && board[row - 1, column] == '+')
+            if (((row - 1) < 19 && (row - 1) >= 0) && board[row - 1, column] == player2)
             {
-                board[row - 1, column] = 'X';
+                if (((row - 2) < 19 && (row - 2) >= 0) && board[row - 2, column] == player2)
+                {
+                    if (((row - 3) < 19 && (row - 3) >= 0) && board[row - 3, column] == player1)
+                    {
+                        deletePiece(column, row - 1);
+                        deletePiece(column, row - 2);
+                    }
+                }
             }
             //check for top left of piece
-            if (((row - 1) < 19 && (row - 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row - 1, column - 1] == '+')
+            if (((row - 1) < 19 && (row - 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row - 1, column - 1] == player2)
             {
-                board[row - 1, column - 1] = 'X';
+                if (((row - 2) < 19 && (row - 2) >= 0 && (column - 2) < 19 && (column - 2) >= 0) && board[row - 2, column - 2] == player2)
+                {
+                    if (((row - 3) < 19 && (row - 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row - 3, column - 3] == player1)
+                    {
+                        deletePiece(column - 1, row - 1);
+                        deletePiece(column - 2, row - 2);
+                    }
+                }
             }
             //check directly above piece
-            if (((column - 1) < 19 && (column - 1) >= 0) && board[row, column - 1] == '+')
+            if (((column - 1) < 19 && (column - 1) >= 0) && board[row, column - 1] == player2)
             {
-                board[row, column - 1] = 'X';
+                if (((column - 2) < 19 && (column - 2) >= 0) && board[row, column - 2] == player2)
+                {
+                    if (((column - 3) < 19 && (column - 3) >= 0) && board[row, column - 3] == player1)
+                    {
+                        deletePiece(column - 1, row);
+                        deletePiece(column - 2, row);
+                    }
+                }
             }
             //check top right of piece
             if (((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == '+')
             {
-                board[row + 1, column - 1] = 'X';
+                if (((row + 2) < 19 && (row + 2) >= 0 && (column - 2) < 19 && (column - 2) >= 0) && board[row + 2, column - 2] == '+')
+                {
+                    if (((row + 3) < 19 && (row + 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row + 3, column - 3] == '+')
+                    {
+                        deletePiece(column - 1, row + 1);
+                        deletePiece(column - 2, row + 2);
+                    }
+                }
             }
         }
 
@@ -114,53 +163,53 @@ namespace PenteProject
         //param for last piece placed
         //check if piece has already been placed. if its a +, it cannot be put in that space.
 
-        public void checkPossiblePlacements(char col, int row)
-        {
-            int column = col - 97;
-            row--;
-            //ROW = X, COL = Y
+        //public void checkPossiblePlacements(char col, int row)
+        //{
+        //    int column = col - 97;
+        //    row--;
+        //    //ROW = X, COL = Y
 
-            //check for right of last placed piece
-            if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 1, column] == '+')
-            {
-                board[row + 1, column] = 'X';
-            }
-            //check for bottom right corner
-            if (((row + 1) < 19 && (row + 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row + 1, column + 1] == '+')
-            {
-                board[row + 1, column + 1] = 'X';
-            }
-            //check for space directly under piece
-            if (((column + 1) < 19 && (column + 1) >= 0) && board[row, column + 1] == '+')
-            {
-                board[row, column + 1] = 'X';
-            }
-            //check for bottom left of piece
-            if (((row - 1) < 19 && (row - 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row - 1, column + 1] == '+')
-            {
-                board[row - 1, column + 1] = 'X';
-            }
-            //check for left of piece
-            if(((row - 1) < 19 && (row - 1) >= 0) && board[row - 1, column] == '+')
-            {
-                board[row - 1, column] = 'X';
-            }
-            //check for top left of piece
-            if(((row - 1) < 19 && (row - 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row - 1, column - 1] == '+')
-            {
-                board[row - 1, column - 1] = 'X';
-            }
-            //check directly above piece
-            if(((column - 1) < 19 && (column - 1) >= 0) && board[row, column - 1] == '+')
-            {
-                board[row, column - 1] = 'X';
-            }
-            //check top right of piece
-            if(((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == '+')
-            {
-                board[row + 1, column - 1] = 'X';
-            }
-        }
+        //    //check for right of last placed piece
+        //    if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 1, column] == '+')
+        //    {
+        //        board[row + 1, column] = 'X';
+        //    }
+        //    //check for bottom right corner
+        //    if (((row + 1) < 19 && (row + 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row + 1, column + 1] == '+')
+        //    {
+        //        board[row + 1, column + 1] = 'X';
+        //    }
+        //    //check for space directly under piece
+        //    if (((column + 1) < 19 && (column + 1) >= 0) && board[row, column + 1] == '+')
+        //    {
+        //        board[row, column + 1] = 'X';
+        //    }
+        //    //check for bottom left of piece
+        //    if (((row - 1) < 19 && (row - 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row - 1, column + 1] == '+')
+        //    {
+        //        board[row - 1, column + 1] = 'X';
+        //    }
+        //    //check for left of piece
+        //    if (((row - 1) < 19 && (row - 1) >= 0) && board[row - 1, column] == '+')
+        //    {
+        //        board[row - 1, column] = 'X';
+        //    }
+        //    //check for top left of piece
+        //    if (((row - 1) < 19 && (row - 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row - 1, column - 1] == '+')
+        //    {
+        //        board[row - 1, column - 1] = 'X';
+        //    }
+        //    //check directly above piece
+        //    if (((column - 1) < 19 && (column - 1) >= 0) && board[row, column - 1] == '+')
+        //    {
+        //        board[row, column - 1] = 'X';
+        //    }
+        //    //check top right of piece
+        //    if (((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == '+')
+        //    {
+        //        board[row + 1, column - 1] = 'X';
+        //    }
+        //}
 
         public char[,] printBoard()
         {
@@ -203,7 +252,6 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    //checkPossiblePlacements(col, row);
                     placePiece(col, row - 1, p1);
                 }
                 else
@@ -213,7 +261,6 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    //checkPossiblePlacements(col, row);
                     placePiece(col, row - 1, p2);
                 }
             }
