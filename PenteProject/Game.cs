@@ -34,7 +34,6 @@ namespace PenteProject
             }
 
             int column = col - 97;
-            row--;
             //ROW = X, COL = Y
 
             //check for right of last placed piece
@@ -122,11 +121,11 @@ namespace PenteProject
                 }
             }
             //check top right of piece
-            if (((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == '+')
+            if (((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == player2)
             {
-                if (((row + 2) < 19 && (row + 2) >= 0 && (column - 2) < 19 && (column - 2) >= 0) && board[row + 2, column - 2] == '+')
+                if (((row + 2) < 19 && (row + 2) >= 0 && (column - 2) < 19 && (column - 2) >= 0) && board[row + 2, column - 2] == player2)
                 {
-                    if (((row + 3) < 19 && (row + 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row + 3, column - 3] == '+')
+                    if (((row + 3) < 19 && (row + 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row + 3, column - 3] == player1)
                     {
                         placePiece((char)(column + 97 - 1), row + 1, '+');
                         placePiece((char)(column + 97 - 2), row + 2, '+');
@@ -203,7 +202,7 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    placePiece(col, row - 1, p1);
+                    placePiece(col, row - 1, p2);
                     capturePair(col, row - 1, p2);
                 }
             }
