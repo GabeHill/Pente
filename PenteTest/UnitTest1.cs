@@ -12,14 +12,14 @@ namespace PenteTest
         {
             Game g = new Game();
 
-            string res = g.PrintBoard();
+            string res = g.printBoard().ToString();
 
             string expected = "   a b c d e f g h i j k l m n o p q r s\n1 + + + + + + + + + + + + + + + + + + +\n2 + + + + + + + + + + + + + + + + + + +\n3 + + + + + + + + + + + + + + + + + + +\n4 + + + + + + + + + + + + + + + + + + +\n5 + + + + + + + + + + + + + + + + + + +\n6 + + + + + + + + + + + + + + + + + + +\n7 + + + + + + + + + + + + + + + + + + +\n8 + + + + + + + + + + + + + + + + + + +\n9 + + + + + + + + + + + + + + + + + + +\n10 + + + + + + + + + + + + + + + + + + +\n11 + + + + + + + + + + + + + + + + + + +\n12 + + + + + + + + + + + + + + + + + + +\n13 + + + + + + + + + + + + + + + + + + +\n14 + + + + + + + + + + + + + + + + + + +\n15 + + + + + + + + + + + + + + + + + + +\n16 + + + + + + + + + + + + + + + + + + +\n17 + + + + + + + + + + + + + + + + + + +\n18 + + + + + + + + + + + + + + + + + + +\n19 + + + + + + + + + + + + + + + + + + +";
 
             Assert.AreEqual(res, expected);
         }
 
-
+        #region Test Place Piece
         [TestMethod]
         public void TestPlacePiece0_0_b()
         {
@@ -781,14 +781,19 @@ namespace PenteTest
             Assert.AreEqual(res, expected);
 
         }
-
+        #endregion
+        
         [TestMethod]
-        public void TestCapturePair()
+        public void TestCapturePair(char col, int row, char player)
         {
+            Game g = new Game();
+
+            
 
         }
+
         [TestMethod]
-        public void TestWinCheckt()
+        public void TestWinCheck()
         {
 
         }
