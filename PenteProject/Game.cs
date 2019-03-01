@@ -14,7 +14,7 @@ namespace PenteProject
         private char[,] board = new char[19, 19];
         private int turnCounter = 0;
 
-        private bool winCheck()
+        public bool winCheck()
         {
             bool hasWon = false;
 
@@ -98,7 +98,7 @@ namespace PenteProject
             board[row, column] = player;
         }
 
-        private void createBoard()
+        public void createBoard()
         {
             for (int i = 0; i < 19; i++)
             {
@@ -114,7 +114,7 @@ namespace PenteProject
         //param for last piece placed
         //check if piece has already been placed. if its a +, it cannot be put in that space.
 
-        private void checkPossiblePlacements(char col, int row)
+        public void checkPossiblePlacements(char col, int row)
         {
             int column = col - 97;
             row--;
@@ -162,7 +162,7 @@ namespace PenteProject
             }
         }
 
-        private char[,] printBoard()
+        public char[,] printBoard()
         {
             string s = "";
             int spaces = 19;
@@ -203,7 +203,7 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    checkPossiblePlacements(col, row);
+                    //checkPossiblePlacements(col, row);
                     placePiece(col, row - 1, p1);
                 }
                 else
@@ -213,7 +213,7 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    checkPossiblePlacements(col, row);
+                    //checkPossiblePlacements(col, row);
                     placePiece(col, row - 1, p2);
                 }
             }
