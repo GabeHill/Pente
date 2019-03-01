@@ -21,17 +21,123 @@ namespace PenteProject
             return hasWon;
         }
 
-        public void capturePair()
+        private void capturePair(char col, int row, char player1)
         {
+            char player2;
 
+            if (player1 == 'B')
+            {
+                player2 = 'W';
+            } else
+            {
+                player2 = 'B';
+            }
+
+            int column = col - 97;
+            //ROW = X, COL = Y
+
+            //check for right of last placed piece
+            if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 1, column] == player2)
+            {
+                if (((row + 2) < 19 && (row + 2) >= 0) && board[row + 2, column] == player2)
+                {
+                    if (((row + 3) < 19 && (row + 3) >= 0) && board[row + 3, column] == player1)
+                    {
+                        placePiece((char)(column + 97), row + 1, '+');
+                        placePiece((char)(column + 97), row + 2, '+');
+                    }
+                }
+            }
+            //check for bottom right corner
+            if (((row + 1) < 19 && (row + 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row + 1, column + 1] == player2)
+            {
+                if (((row + 2) < 19 && (row + 2) >= 0 && (column + 2) < 19 && (column + 2) >= 0) && board[row + 2, column + 2] == player2)
+                {
+                    if (((row + 3) < 19 && (row + 3) >= 0 && (column + 3) < 19 && (column + 3) >= 0) && board[row + 3, column + 3] == player1)
+                    {
+                        placePiece((char)(column + 1 + 97), row + 1, '+');
+                        placePiece((char)(column + 97 + 2), row + 2, '+');
+                    }
+                }
+            }
+            //check for space directly under piece
+            if (((column + 1) < 19 && (column + 1) >= 0) && board[row, column + 1] == player2)
+            {
+                if (((column + 2) < 19 && (column + 2) >= 0) && board[row, column + 2] == player2)
+                {
+                    if (((column + 3) < 19 && (column + 3) >= 0) && board[row, column + 3] == player1)
+                    {
+                        placePiece((char)(column + 97 + 1), row, '+');
+                        placePiece((char)(column + 97 + 2), row, '+');
+                    }
+                }
+            }
+            //check for bottom left of piece
+            if (((row - 1) < 19 && (row - 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row - 1, column + 1] == player2)
+            {
+                if (((row - 2) < 19 && (row - 2) >= 0 && (column + 2) < 19 && (column + 2) >= 0) && board[row - 2, column + 2] == player2)
+                {
+                    if (((row - 3) < 19 && (row - 3) >= 0 && (column + 3) < 19 && (column + 3) >= 0) && board[row - 3, column + 3] == player1)
+                    {
+                        placePiece((char)(column + 97 + 1), row - 1, '+');
+                        placePiece((char)(column + 97 + 2), row - 2, '+');
+                    }
+                }
+            }
+            //check for left of piece
+            if (((row - 1) < 19 && (row - 1) >= 0) && board[row - 1, column] == player2)
+            {
+                if (((row - 2) < 19 && (row - 2) >= 0) && board[row - 2, column] == player2)
+                {
+                    if (((row - 3) < 19 && (row - 3) >= 0) && board[row - 3, column] == player1)
+                    {
+                        placePiece((char)(column + 97), row - 1, '+');
+                        placePiece((char)(column + 97), row - 2, '+');
+                    }
+                }
+            }
+            //check for top left of piece
+            if (((row - 1) < 19 && (row - 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row - 1, column - 1] == player2)
+            {
+                if (((row - 2) < 19 && (row - 2) >= 0 && (column - 2) < 19 && (column - 2) >= 0) && board[row - 2, column - 2] == player2)
+                {
+                    if (((row - 3) < 19 && (row - 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row - 3, column - 3] == player1)
+                    {
+                        placePiece((char)(column + 97 - 1), row - 1, '+');
+                        placePiece((char)(column + 97 - 2), row - 2, '+');
+                    }
+                }
+            }
+            //check directly above piece
+            if (((column - 1) < 19 && (column - 1) >= 0) && board[row, column - 1] == player2)
+            {
+                if (((column - 2) < 19 && (column - 2) >= 0) && board[row, column - 2] == player2)
+                {
+                    if (((column - 3) < 19 && (column - 3) >= 0) && board[row, column - 3] == player1)
+                    {
+                        placePiece((char)(column + 97 - 1), row, '+');
+                        placePiece((char)(column + 97 - 2), row, '+');
+                    }
+                }
+            }
+            //check top right of piece
+            if (((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == player2)
+            {
+                if (((row + 2) < 19 && (row + 2) >= 0 && (column - 2) < 19 && (column - 2) >= 0) && board[row + 2, column - 2] == player2)
+                {
+                    if (((row + 3) < 19 && (row + 3) >= 0 && (column - 3) < 19 && (column - 3) >= 0) && board[row + 3, column - 3] == player1)
+                    {
+                        placePiece((char)(column + 97 - 1), row + 1, '+');
+                        placePiece((char)(column + 97 - 2), row + 2, '+');
+                    }
+                }
+            }
         }
 
-        public char[,] placePiece(char col, int row, char player)
+        private void placePiece(char col, int row, char player)
         {
             int column = col - 97;
-
             board[row, column] = player;
-            return board;
         }
 
         public void createBoard()
@@ -42,59 +148,6 @@ namespace PenteProject
                 {
                     board[i, j] = '+';
                 }
-            }
-        }
-
-        //possible placement method
-        //check for possible directions after place is pieced
-        //param for last piece placed
-        //check if piece has already been placed. if its a +, it cannot be put in that space.
-
-        public void checkPossiblePlacements(char col, int row)
-        {
-            int column = col - 97;
-            row--;
-            //ROW = X, COL = Y
-
-            //check for right of last placed piece
-            if (((row + 1) < 19 && (row + 1) >= 0) && board[row + 1, column] == '+')
-            {
-                board[row + 1, column] = 'X';
-            }
-            //check for bottom right corner
-            if (((row + 1) < 19 && (row + 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row + 1, column + 1] == '+')
-            {
-                board[row + 1, column + 1] = 'X';
-            }
-            //check for space directly under piece
-            if (((column + 1) < 19 && (column + 1) >= 0) && board[row, column + 1] == '+')
-            {
-                board[row, column + 1] = 'X';
-            }
-            //check for bottom left of piece
-            if (((row - 1) < 19 && (row - 1) >= 0 && (column + 1) < 19 && (column + 1) >= 0) && board[row - 1, column + 1] == '+')
-            {
-                board[row - 1, column + 1] = 'X';
-            }
-            //check for left of piece
-            if(((row - 1) < 19 && (row - 1) >= 0) && board[row - 1, column] == '+')
-            {
-                board[row - 1, column] = 'X';
-            }
-            //check for top left of piece
-            if(((row - 1) < 19 && (row - 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row - 1, column - 1] == '+')
-            {
-                board[row - 1, column - 1] = 'X';
-            }
-            //check directly above piece
-            if(((column - 1) < 19 && (column - 1) >= 0) && board[row, column - 1] == '+')
-            {
-                board[row, column - 1] = 'X';
-            }
-            //check top right of piece
-            if(((row + 1) < 19 && (row + 1) >= 0 && (column - 1) < 19 && (column - 1) >= 0) && board[row + 1, column - 1] == '+')
-            {
-                board[row + 1, column - 1] = 'X';
             }
         }
 
@@ -139,7 +192,7 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    //checkPossiblePlacements(col, row);
+                    capturePair(col, row - 1, p1);
                     placePiece(col, row - 1, p1);
                 }
                 else
@@ -149,7 +202,7 @@ namespace PenteProject
                     printBoard();
                     char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                     int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
-                    //checkPossiblePlacements(col, row);
+                    capturePair(col, row - 1, p2);
                     placePiece(col, row - 1, p2);
                 }
             }
