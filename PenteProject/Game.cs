@@ -15,49 +15,52 @@ namespace PenteProject
         private char[,] board = new char[19, 19];
         private int turnCounter = 0;
 
-        public void winCheck(char column, int row, char player)
+        public void checkDiagonal(int row, int column, char player)
         {
-            int col = column - 97;
-            //right // board[row + 1, column]
-            if (checkPiece(col, row + 1, player) && checkPiece(col, row + 2, player) && checkPiece(col, row + 3, player) && checkPiece(col, row + 4, player))
+            int downRight = checkDiagonal(player, row, column, true, true);
+            Console.WriteLine(downRight);
+            int upLeft = checkDiagonal(player, row, column, false, false);
+            Console.WriteLine(upLeft);
+            int upRight = checkDiagonal(player, row, column, true, false);
+            Console.WriteLine(upRight);
+            int downLeft = checkDiagonal(player, row, column, false, true);
+            Console.WriteLine(downLeft);
+
+            if (downRight + upLeft > 5 || upRight + downLeft > 5)
             {
                 winResult(player);
             }
-            //bot right // board[row + 1, column + 1]
-            if (checkPiece(col + 1, row + 1, player) && checkPiece(col + 2, row + 2, player) && checkPiece(col + 3, row + 3, player) && checkPiece(col + 4, row + 4, player))
-            {
-                winResult(player);
+
+        }
+
+        public int checkDiagonal(char player, int x, int y, bool sign1, bool sign2)
+        {
+            int solution = 0;
+            if (x > 19 || x < 0)
+            { //The next call would put it out of bounds
+                solution = 0;
             }
-            //bot // board[row, column + 1]
-            if (checkPiece(col + 1, row, player) && checkPiece(col + 2, row, player) && checkPiece(col + 3, row, player) && checkPiece(col + 4, row, player))
+            else if (y > 19 || y < 0)
             {
-                winResult(player);
+                solution = 0;
             }
-            //bot left //board[row - 1, column + 1]
-            if (checkPiece(col + 1, row - 1, player) && checkPiece(col + 2, row - 2, player) && checkPiece(col + 3, row - 3, player) && checkPiece(col + 4, row - 4, player))
+            else if (board[x,y] == player)
             {
-                winResult(player);
+                if (sign1)
+                {
+                    solution = sign2 ? checkDiagonal(player, x + 1, y + 1, true, true) : checkDiagonal(player, x + 1, y - 1, true, false); //right down || right up
+                }
+                else
+                {
+                    solution = sign2 ? checkDiagonal(player, x - 1, y + 1, false, true) : checkDiagonal(player, x - 1, y - 1, false, false); //left down || left up
+                }
+                solution++;
             }
-            // left //board[row - 1, column]
-            if (checkPiece(col, row - 1, player) && checkPiece(col, row - 2, player) && checkPiece(col, row - 3, player) && checkPiece(col, row - 4, player))
+            else
             {
-                winResult(player);
+                solution = 0;
             }
-            // top left //board[row - 1, column - 1] 
-            if (checkPiece(col - 1, row - 1, player) && checkPiece(col - 2, row - 2, player) && checkPiece(col - 3, row - 3, player) && checkPiece(col - 4, row - 4, player))
-            {
-                winResult(player);
-            }
-            //top //board[row, column - 1]
-            if (checkPiece(col - 1, row, player) && checkPiece(col - 2, row, player) && checkPiece(col - 3, row, player) && checkPiece(col - 4, row, player))
-            {
-                winResult(player);
-            }
-            //top right // board[row + 1, column - 1]
-            if (checkPiece(col - 1, row + 1, player) && checkPiece(col - 2, row + 2, player) && checkPiece(col - 3, row + 3, player) && checkPiece(col - 4, row + 4, player))
-            {
-                winResult(player);
-            }
+            return solution;
         }
 
         public bool checkPiece(int col, int row, char player)
@@ -286,6 +289,7 @@ namespace PenteProject
                 turnCounter++;
                 if (turnCounter % 2 == 1)
                 {
+                    int column = 0;
                     Console.WriteLine("Player 1's turn!");
                     printBoard();
 
@@ -294,7 +298,8 @@ namespace PenteProject
                         col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                         row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
 
-                        int column = col - 97;
+                        column = col - 97;
+
                         if (board[row - 1, column] == '+')
                         {
                             validInput = true;                        
@@ -306,11 +311,12 @@ namespace PenteProject
                     }
                     capturePair(col, row - 1, p1);
                     placePiece(col, row - 1, p1);
-                    winCheck(col, row - 1, p1);
+                    checkDiagonal(row - 1, column, p1);
                 }
                 else
                 {
                     Console.WriteLine("Player 2's turn!");
+                    int column = 0;
 
                     printBoard();
                     while (!validInput)
@@ -319,7 +325,8 @@ namespace PenteProject
                         col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
                         row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
 
-                        int column = col - 97;
+                        column = col - 97;
+
                         if (board[row - 1, column] == '+')
                         {
                             validInput = true;
@@ -331,7 +338,7 @@ namespace PenteProject
                     }
                     capturePair(col, row - 1, p2);
                     placePiece(col, row - 1, p2);
-                    winCheck(col, row - 1, p2);
+                    checkDiagonal(row-1, column, p2);
 
                 }
             }
