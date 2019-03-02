@@ -12,7 +12,7 @@ namespace PenteProject
         private bool hasWon = false;
         private int wCapture = 0;
         private int bCapture = 0;
-        private char[,] board = new char[19, 19];
+        public char[,] board = new char[19, 19];
         private int turnCounter = 0;
 
         public void winCheck(char column, int row, char player)
@@ -107,7 +107,7 @@ namespace PenteProject
             }
         }
 
-        private void capturePair(char col, int row, char player1)
+        public void capturePair(char col, int row, char player1)
         {
             char player2;
 

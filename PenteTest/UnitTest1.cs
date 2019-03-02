@@ -1486,8 +1486,38 @@ namespace PenteTest {
 
         [TestMethod]
         public void TestCapturePair() {
+            Game g = new Game();
 
+            g.createBoard();
+
+            string res = "";
+            string expected1 = "B++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+            //expected1.Replace('\n', '\0');
+
+            char p1 = 'B';
+            char p2 = 'W';
+            
+            g.capturePair('a', 0, p1);
+            g.placePiece('a', 0, p1); // (column, row, player)
+            g.capturePair('b', 0, p2);
+            g.placePiece('b', 0, p2); // (column, row, player)
+            g.capturePair('c', 0, p2);
+            g.placePiece('c', 0, p2); // (column, row, player)
+            g.capturePair('d', 0, p1);
+            g.placePiece('d', 0, p1); // (column, row, player)
+
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 19; j++)
+                {
+                    res += g.board[i, j];
+                }
+            }
+            
+            Assert.AreEqual(expected1, res);
         }
+
         [TestMethod]
         public void TestWinCheckt() {
 
