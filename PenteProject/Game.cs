@@ -81,7 +81,8 @@ namespace PenteProject
 
         public void winResult(char player)
         {
-            Console.WriteLine("you win");
+            printBoard();
+            Console.WriteLine(player + " wins!");
             hasWon = true;
         }
 
@@ -228,7 +229,7 @@ namespace PenteProject
             }
         }
 
-        private void placePiece(char col, int row, char player)
+        public void placePiece(char col, int row, char player)
         {
             int column = col - 97;
             board[row, column] = player;
@@ -274,18 +275,34 @@ namespace PenteProject
         {
             char p1 = 'B';
             char p2 = 'W';
+            char col = 'a';
+            int row = 0;
             createBoard();
             //start game loop here
-            while (hasWon == false)
+            while (!hasWon)
             {
+                bool validInput = false;
                 turnCounter++;
                 if (turnCounter % 2 == 1)
                 {
                     Console.WriteLine("Player 1's turn!");
-
                     printBoard();
-                    char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
-                    int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
+
+                    while (!validInput)
+                    {
+                        col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
+                        row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
+
+                        int column = col - 97;
+                        if (board[row - 1, column] == '+')
+                        {
+                            validInput = true;                        
+                        }
+                        else
+                        {
+                            Console.WriteLine("That space is already taken try again: ");
+                        }
+                    }
                     capturePair(col, row - 1, p1);
                     placePiece(col, row - 1, p1);
                     winCheck(col, row - 1, p1);
@@ -295,8 +312,22 @@ namespace PenteProject
                     Console.WriteLine("Player 2's turn!");
 
                     printBoard();
-                    char col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
-                    int row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
+                    while (!validInput)
+                    {
+
+                        col = ConsoleIO.ConsoleIo.PromptForChar("What column would you like to place your piece in?", 'a', 's');
+                        row = ConsoleIO.ConsoleIo.PromptForInt("What row would you like to place your piece in?", 1, 19);
+
+                        int column = col - 97;
+                        if (board[row - 1, column] == '+')
+                        {
+                            validInput = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("That space is already taken try again: ");
+                        }
+                    }
                     capturePair(col, row - 1, p2);
                     placePiece(col, row - 1, p2);
                     winCheck(col, row - 1, p2);
