@@ -229,10 +229,11 @@ namespace PenteProject
             }
         }
 
-        public void placePiece(char col, int row, char player)
+        public char[,] placePiece(char col, int row, char player)
         {
             int column = col - 97;
             board[row, column] = player;
+            return board;
         }
 
         public void createBoard()
