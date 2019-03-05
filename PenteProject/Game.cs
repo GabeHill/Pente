@@ -15,22 +15,45 @@ namespace PenteProject
         public char[,] board = new char[19, 19];
         private int turnCounter = 0;
 
-        public void checkDiagonal(int row, int column, char player)
+        public bool checkDiagonal(int row, int column, char player)
         {
             int downRight = checkDiagonal(player, row, column, true, true);
-            Console.WriteLine(downRight);
             int upLeft = checkDiagonal(player, row, column, false, false);
-            Console.WriteLine(upLeft);
             int upRight = checkDiagonal(player, row, column, true, false);
-            Console.WriteLine(upRight);
             int downLeft = checkDiagonal(player, row, column, false, true);
-            Console.WriteLine(downLeft);
 
-            if (downRight + upLeft > 5 || upRight + downLeft > 5)
+            return downRight + upLeft > 5 || upRight + downLeft > 5;
+        }
+
+        public bool checkWin(int row, int col, char player)
+        {
+            int upDown= 0;
+            int leftRight = 0;
+            for (int i = 0; i < 19 && upDown < 5; i++)
             {
-                winResult(player);
+                if (board[i,col] == player)
+                {
+                    upDown++;
+                }
+                else
+                {
+                    upDown = 0;
+                }
+                leftRight = 0;
+                for (int j = 0; j < 19 - 1 && leftRight < 5; j++)
+                {
+                    if (board[row,j] == player)
+                    {
+                       leftRight++;
+                    }
+                    else
+                    {
+                       leftRight = 0;
+                    }
+                }
             }
-
+            bool check = checkDiagonal(row, col, player);
+            return upDown >= 5 || leftRight >= 5 || check;
         }
 
         public int checkDiagonal(char player, int x, int y, bool sign1, bool sign2)
@@ -311,7 +334,10 @@ namespace PenteProject
                     }
                     capturePair(col, row - 1, p1);
                     placePiece(col, row - 1, p1);
-                    checkDiagonal(row - 1, column, p1);
+                    if(checkWin(row - 1, column, p1))
+                    {
+                        winResult(p1);
+                    }
                 }
                 else
                 {
@@ -338,7 +364,10 @@ namespace PenteProject
                     }
                     capturePair(col, row - 1, p2);
                     placePiece(col, row - 1, p2);
-                    checkDiagonal(row-1, column, p2);
+                    if(checkWin(row-1, column, p2))
+                    {
+                        winResult(p2);
+                    }
 
                 }
             }
