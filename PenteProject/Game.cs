@@ -271,6 +271,7 @@ namespace PenteProject
                     board[i, j] = '+';
                 }
             }
+            board[9, 9] = 'B';
         }
 
         public char[,] printBoard()
@@ -304,6 +305,7 @@ namespace PenteProject
             char p2 = 'W';
             char col = 'a';
             int row = 0;
+            hasWon = false;
             createBoard();
             //start game loop here
             while (!hasWon)
@@ -313,7 +315,7 @@ namespace PenteProject
                 if (turnCounter % 2 == 1)
                 {
                     int column = 0;
-                    Console.WriteLine("Player 1's turn!");
+                    Console.WriteLine("Player 2's turn!");
                     printBoard();
 
                     while (!validInput)
@@ -332,16 +334,16 @@ namespace PenteProject
                             Console.WriteLine("That space is already taken try again: ");
                         }
                     }
-                    capturePair(col, row - 1, p1);
-                    placePiece(col, row - 1, p1);
-                    if(checkWin(row - 1, column, p1))
+                    capturePair(col, row - 1, p2);
+                    placePiece(col, row - 1, p2);
+                    if(checkWin(row - 1, column, p2))
                     {
-                        winResult(p1);
+                        winResult(p2);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Player 2's turn!");
+                    Console.WriteLine("Player 1's turn!");
                     int column = 0;
 
                     printBoard();
@@ -362,14 +364,18 @@ namespace PenteProject
                             Console.WriteLine("That space is already taken try again: ");
                         }
                     }
-                    capturePair(col, row - 1, p2);
-                    placePiece(col, row - 1, p2);
-                    if(checkWin(row-1, column, p2))
+                    capturePair(col, row - 1, p1);
+                    placePiece(col, row - 1, p1);
+                    if(checkWin(row-1, column, p1))
                     {
-                        winResult(p2);
+                        winResult(p1);
                     }
-
                 }
+            }
+            bool ans = ConsoleIO.ConsoleIo.PromptForBool("Would you like to play again(y/n)", "y", "n");
+            if (ans)
+            {
+                runGame();
             }
         }
     }
