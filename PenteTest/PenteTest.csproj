@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PenteProject\PenteProject.csproj">
-      <Project>{62704404-719f-46ae-9a4f-2c0dc8353b18}</Project>
+      <Project>{62704404-719F-46AE-9A4F-2C0DC8353B18}</Project>
       <Name>PenteProject</Name>
     </ProjectReference>
   </ItemGroup>

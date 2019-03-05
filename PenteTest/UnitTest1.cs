@@ -8,12 +8,12 @@ namespace PenteTest {
         [TestMethod]
         public void TestPrintBoard() {
             Game g = new Game();
-
+            g.createBoard();
             char[,] board = g.printBoard();
             string res = "";
 
-            for (int i = 0; i < board.Length; i++) {
-                for (int j = 0; j < board.Length; i++) {
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
                     res += board[i, j];
                 }
             }
@@ -27,21 +27,20 @@ namespace PenteTest {
         #region TestPlacePiece
 
         [TestMethod]
-        public void TestPlacePiece0_0_b()
-        {
+        public void TestPlacePiece0_0_b() {
             Game g = new Game();
 
-            string test = "B++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 0, 'B'); //[x,y,piece color]
+            g.createBoard();
 
-            string[] stringArr = test.Split('\n');
+            char[,] board = g.placePiece('a', 0, 'B'); //[x,y,piece color]
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
+            string res = "";
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
@@ -49,779 +48,705 @@ namespace PenteTest {
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_0_b()
-        {
+        public void TestPlacePiece18_0_b() {
             Game g = new Game();
 
-            string test = "++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 0, 'B'); //[x,y,piece color]
+            g.createBoard();
 
-            string[] stringArr = test.Split('\n');
+            char[,] board = g.placePiece('s', 0, 'B'); //[x,y,piece color]
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
+            string res = "";
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_1_b()
-        {
+        public void TestPlacePiece0_1_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 1, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 1, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_1_b()
-        {
+        public void TestPlacePiece18_1_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 1, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 1, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_2_b()
-        {
+        public void TestPlacePiece0_2_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 2, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 2, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_2_b()
-        {
+        public void TestPlacePiece18_2_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 2, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 2, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_3_b()
-        {
+        public void TestPlacePiece0_3_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 3, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 3, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_3_b()
-        {
+        public void TestPlacePiece18_3_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 3, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 3, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_4_b()
-        {
+        public void TestPlacePiece0_4_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 4, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 4, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_4_b()
-        {
+        public void TestPlacePiece18_4_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 4, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 4, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_5_b()
-        {
+        public void TestPlacePiece0_5_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 5, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 5, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_5_b()
-        {
+        public void TestPlacePiece18_5_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 5, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 5, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_6_b()
-        {
+        public void TestPlacePiece0_6_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 6, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 6, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_6_b()
-        {
+        public void TestPlacePiece18_6_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 6, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 6, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_7_b()
-        {
+        public void TestPlacePiece0_7_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 7, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 7, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_7_b()
-        {
+        public void TestPlacePiece18_7_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 7, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 7, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_8_b()
-        {
+        public void TestPlacePiece0_8_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 8, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 8, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_8_b()
-        {
+        public void TestPlacePiece18_8_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 8, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 8, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_9_b()
-        {
+        public void TestPlacePiece0_9_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 9, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 9, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_9_b()
-        {
+        public void TestPlacePiece18_9_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 9, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 9, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_10_b()
-        {
+        public void TestPlacePiece0_10_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 10, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 10, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_10_b()
-        {
+        public void TestPlacePiece18_10_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 10, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 10, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_11_b()
-        {
+        public void TestPlacePiece0_11_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 11, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 11, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_11_b()
-        {
+        public void TestPlacePiece18_11_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 11, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 11, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_12_b()
-        {
+        public void TestPlacePiece0_12_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 12, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 12, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_12_b()
-        {
+        public void TestPlacePiece18_12_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 12, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 12, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_13_b()
-        {
+        public void TestPlacePiece0_13_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 13, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 13, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_13_b()
-        {
+        public void TestPlacePiece18_13_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 13, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 13, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_14_b()
-        {
+        public void TestPlacePiece0_14_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 14, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 14, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_14_b()
-        {
+        public void TestPlacePiece18_14_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 14, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 14, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_15_b()
-        {
+        public void TestPlacePiece0_15_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 15, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 15, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_15_b()
-        {
+        public void TestPlacePiece18_15_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 15, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 15, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_16_b()
-        {
+        public void TestPlacePiece0_16_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 16, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 16, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_16_b()
-        {
+        public void TestPlacePiece18_16_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 16, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 16, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_17_b()
-        {
+        public void TestPlacePiece0_17_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 17, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 17, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_17_b()
-        {
+        public void TestPlacePiece18_17_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B+++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 17, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 17, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_18_b()
-        {
+        public void TestPlacePiece0_18_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 18, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 18, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++) {
-                for (int j = 0; j < stringArr.Length; j++) {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_18_b()
-        {
+        public void TestPlacePiece18_18_b() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++B";
 
-            char[,] res = g.placePiece('s', 18, 'B'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 18, 'B'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
@@ -831,23 +756,19 @@ namespace PenteTest {
         }
 
         [TestMethod]
-        public void TestPlacePiece0_0_w()
-        {
+        public void TestPlacePiece0_0_w() {
             Game g = new Game();
 
-            string test = "B++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 0, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 0, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
@@ -855,851 +776,704 @@ namespace PenteTest {
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_0_w()
-        {
+        public void TestPlacePiece18_0_w() {
             Game g = new Game();
 
-            string test = "++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 0, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 0, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_1_w()
-        {
+        public void TestPlacePiece0_1_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 1, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 1, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_1_w()
-        {
+        public void TestPlacePiece18_1_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 1, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 1, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_2_w()
-        {
+        public void TestPlacePiece0_2_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 2, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 2, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_2_w()
-        {
+        public void TestPlacePiece18_2_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 2, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 2, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_3_w()
-        {
+        public void TestPlacePiece0_3_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 3, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 3, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_3_w()
-        {
+        public void TestPlacePiece18_3_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 3, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 3, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_4_w()
-        {
+        public void TestPlacePiece0_4_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 4, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 4, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_4_w()
-        {
+        public void TestPlacePiece18_4_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 4, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 4, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_5_w()
-        {
+        public void TestPlacePiece0_5_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 5, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 5, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_5_w()
-        {
+        public void TestPlacePiece18_5_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 5, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 5, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_6_w()
-        {
+        public void TestPlacePiece0_6_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 6, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 6, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_6_w()
-        {
+        public void TestPlacePiece18_6_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 6, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 6, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_7_w()
-        {
+        public void TestPlacePiece0_7_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 7, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 7, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_7_w()
-        {
+        public void TestPlacePiece18_7_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 7, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 7, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_8_w()
-        {
+        public void TestPlacePiece0_8_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 8, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 8, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_8_w()
-        {
+        public void TestPlacePiece18_8_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 8, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 8, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_9_w()
-        {
+        public void TestPlacePiece0_9_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 9, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 9, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_9_w()
-        {
+        public void TestPlacePiece18_9_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 9, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 9, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_10_w()
-        {
+        public void TestPlacePiece0_10_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 10, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 10, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_10_w()
-        {
+        public void TestPlacePiece18_10_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 10, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 10, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_11_w()
-        {
+        public void TestPlacePiece0_11_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 11, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 11, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_11_w()
-        {
+        public void TestPlacePiece18_11_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 11, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 11, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_12_w()
-        {
+        public void TestPlacePiece0_12_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 12, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 12, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_12_w()
-        {
+        public void TestPlacePiece18_12_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 12, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 12, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_13_w()
-        {
+        public void TestPlacePiece0_13_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 13, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 13, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_13_w()
-        {
+        public void TestPlacePiece18_13_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 13, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 13, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_14_w()
-        {
+        public void TestPlacePiece0_14_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 14, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 14, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_14_w()
-        {
+        public void TestPlacePiece18_14_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 14, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 14, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_15_w()
-        {
+        public void TestPlacePiece0_15_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 15, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 15, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_15_w()
-        {
+        public void TestPlacePiece18_15_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 15, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 15, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_16_w()
-        {
+        public void TestPlacePiece0_16_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 16, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 16, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_16_w()
-        {
+        public void TestPlacePiece18_16_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 16, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 16, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_17_w()
-        {
+        public void TestPlacePiece0_17_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 17, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 17, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_17_w()
-        {
+        public void TestPlacePiece18_17_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B\n+++++++++++++++++++";
+            string expected = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W+++++++++++++++++++";
 
-            char[,] res = g.placePiece('s', 17, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('s', 17, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece0_18_w()
-        {
+        public void TestPlacePiece0_18_w() {
             Game g = new Game();
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\nB++++++++++++++++++";
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W++++++++++++++++++";
 
-            char[,] res = g.placePiece('a', 18, 'W'); //[x,y,piece color]
+            g.createBoard(); char[,] board = g.placePiece('a', 18, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
             Assert.AreEqual(res, expected);
         }
         [TestMethod]
-        public void TestPlacePiece18_18_w()
-        {
+        public void TestPlacePiece18_18_w() {
             Game g = new Game();
+
+            string expected = "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++W";
 
-            string test = "+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n+++++++++++++++++++\n++++++++++++++++++B";
+            g.createBoard(); char[,] board = g.placePiece('s', 18, 'W'); //[x,y,piece color]
 
-            char[,] res = g.placePiece('s', 18, 'W'); //[x,y,piece color]
 
-            string[] stringArr = test.Split('\n');
+            string res = "";
 
-            char[,] expected = new char[stringArr.Length, stringArr.Length];
 
-            for (int i = 0; i < stringArr.Length; i++)
-            {
-                for (int j = 0; j < stringArr.Length; j++)
-                {
-                    expected[i, j] = stringArr[i].ToCharArray()[j];
+            for (int i = 0; i < 19; i++) {
+                for (int j = 0; j < 19; j++) {
+                    res += board[i, j];
                 }
             }
 
@@ -1712,8 +1486,38 @@ namespace PenteTest {
 
         [TestMethod]
         public void TestCapturePair() {
+            Game g = new Game();
 
+            g.createBoard();
+
+            string res = "";
+            string expected1 = "B++B+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+            //expected1.Replace('\n', '\0');
+
+            char p1 = 'B';
+            char p2 = 'W';
+            
+            g.capturePair('a', 0, p1);
+            g.placePiece('a', 0, p1); // (column, row, player)
+            g.capturePair('b', 0, p2);
+            g.placePiece('b', 0, p2); // (column, row, player)
+            g.capturePair('c', 0, p2);
+            g.placePiece('c', 0, p2); // (column, row, player)
+            g.capturePair('d', 0, p1);
+            g.placePiece('d', 0, p1); // (column, row, player)
+
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 19; j++)
+                {
+                    res += g.board[i, j];
+                }
+            }
+            
+            Assert.AreEqual(expected1, res);
         }
+
         [TestMethod]
         public void TestWinCheckt() {
 
