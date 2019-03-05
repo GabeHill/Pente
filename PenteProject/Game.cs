@@ -9,7 +9,7 @@ namespace PenteProject
     public class Game
     {
         private int score = 0;
-        private bool hasWon = false;
+        public bool hasWon = false;
         private int wCapture = 0;
         private int bCapture = 0;
         public char[,] board = new char[19, 19];
