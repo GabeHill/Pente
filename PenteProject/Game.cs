@@ -15,23 +15,13 @@ namespace PenteProject
         public char[,] board = new char[19, 19];
         private int turnCounter = 0;
 
-        public bool checkDiagonal(int row, int column, char player)
-        {
-            int downRight = checkDiagonal(player, row, column, true, true);
-            int upLeft = checkDiagonal(player, row, column, false, false);
-            int upRight = checkDiagonal(player, row, column, true, false);
-            int downLeft = checkDiagonal(player, row, column, false, true);
-
-            return downRight + upLeft > 5 || upRight + downLeft > 5;
-        }
-
         public bool checkWin(int row, int col, char player)
         {
-            int upDown= 0;
+            int upDown = 0;
             int leftRight = 0;
             for (int i = 0; i < 19 && upDown < 5; i++)
             {
-                if (board[i,col] == player)
+                if (board[i, col] == player)
                 {
                     upDown++;
                 }
@@ -42,18 +32,28 @@ namespace PenteProject
                 leftRight = 0;
                 for (int j = 0; j < 19 - 1 && leftRight < 5; j++)
                 {
-                    if (board[row,j] == player)
+                    if (board[row, j] == player)
                     {
-                       leftRight++;
+                        leftRight++;
                     }
                     else
                     {
-                       leftRight = 0;
+                        leftRight = 0;
                     }
                 }
             }
             bool check = checkDiagonal(row, col, player);
             return upDown >= 5 || leftRight >= 5 || check;
+        }
+
+        public bool checkDiagonal(int row, int column, char player)
+        {
+            int downRight = checkDiagonal(player, row, column, true, true);
+            int upLeft = checkDiagonal(player, row, column, false, false);
+            int upRight = checkDiagonal(player, row, column, true, false);
+            int downLeft = checkDiagonal(player, row, column, false, true);
+
+            return downRight + upLeft > 5 || upRight + downLeft > 5;
         }
 
         public int checkDiagonal(char player, int x, int y, bool sign1, bool sign2)
